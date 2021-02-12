@@ -60,22 +60,28 @@ article {
     margin-bottom: 50px;
 }
 
-.short-post__link {
+.post__link {
     text-decoration: none;
     color: #007acc;
 }
 
-.short-post__link:hover {
+.post__link:hover {
     text-decoration: underline;
 
 }
 
-.post__title {
+.post__date {
+    line-height: 0.75;
+    color: rgba(0, 0, 0, 0.705);
+    font-size: 14px;
+}
+
+.post__title--single-page {
     font-size: 40px;
     margin-bottom: 16px;
 }
 
-.post__header {
+.post__header--single-page {
     margin-bottom: 42px
 }
 
