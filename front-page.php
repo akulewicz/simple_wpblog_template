@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page title</title>
 
-    <?php wp_head() ?>
+    <?php get_header(); ?>
 
-</head>
-<body>
-    <header class="site-header">
-        <h1 class="site-header__main-link"><i class="fas fa-code dev-icon"></i>Page title</h1>
-    </header>
     <main>
-    
-   
         <section>
             <article class="short-post"> 
                 <header class="short-post__header">
@@ -47,17 +33,6 @@
             </article>
         </section>
     </main>
-    <footer class="footer">
-        <nav class="footer-navigation">
-            <ul class="footer-navigation__list">
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="/">Home</a></li>
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="#">O mnie</a></li>
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="#">Kontakt</a></li>
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="#">Poruszeni.pl</a></li>
-            </ul>
-        </nav>
-        <p>&copy; Arkadiusz Kulewicz 2021 r.</p>
-    </footer>
     
-</body>
-</html>
+
+    <?php get_footer(); ?>
