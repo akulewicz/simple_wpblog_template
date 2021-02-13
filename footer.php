@@ -1,11 +1,12 @@
 <footer class="footer">
         <nav class="footer-navigation">
-            <ul class="footer-navigation__list">
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="/">Home</a></li>
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="#">O mnie</a></li>
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="#">Kontakt</a></li>
-                <li class="footer-navigation__item"><a class="footer-navigation__link" href="#">Poruszeni.pl</a></li>
-            </ul>
+            <?php 
+                wp_nav_menu(array(
+                    'theme_location' => 'footer',
+                    'container'      => 'ul',
+                    'menu_class'     => 'footer-navigation__list'
+                    )); 
+            ?>
         </nav>
         <p>&copy; Arkadiusz Kulewicz 2021 r.</p>
     </footer>
