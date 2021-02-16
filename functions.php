@@ -11,7 +11,7 @@ add_action('after_setup_theme', 'simpleblog_theme_support');
 /* Create menu locations */
 function simpleblog_menus() {
     $locations = array(
-        'footer' => "Footer Menu"
+        'sidebar' => "Sidebar Menu"
     );
     register_nav_menus($locations);
 }
@@ -20,26 +20,26 @@ add_action('init', 'simpleblog_menus');
 
 
 /* Add specific class for footer menu li */
-function simpleblog_add_class_footermenu_li( $classes, $item, $args ) {
-    if( $args->theme_location == 'footer') {
-        $classes[] = 'footer-navigation__item';
+function simpleblog_add_class_sidebarmenu_li( $classes, $item, $args ) {
+    if( $args->theme_location == 'sidebar') {
+        $classes[] = 'sidebar-navigation__item';
     }
     return $classes;
 
 }
 
-add_filter('nav_menu_css_class', 'simpleblog_add_class_footermenu_li', 1, 3);
+add_filter('nav_menu_css_class', 'simpleblog_add_class_sidebarmenu_li', 1, 3);
 
 
 /* Add specific class for footer menu anchor */
-function simpleblog_add_class_footermenu_a( $atts, $item, $args ) {
-    if( $args->theme_location == 'footer' ) {
-      $atts['class'] = 'footer-navigation__link';
+function simpleblog_add_class_sidebarmenu_a( $atts, $item, $args ) {
+    if( $args->theme_location == 'sidebar' ) {
+      $atts['class'] = 'sidebar-navigation__link';
     }
     return $atts;
 }
 
-add_filter( 'nav_menu_link_attributes', 'simpleblog_add_class_footermenu_a', 10, 3 );
+add_filter( 'nav_menu_link_attributes', 'simpleblog_add_class_sidebarmenu_a', 10, 3 );
 
 
 // ==================== REGISTER STYLES AND SCRIPTS =================
@@ -54,5 +54,11 @@ function simpleblog_register_styles() {
 
 add_action('wp_enqueue_scripts', 'simpleblog_register_styles');
 
+
+function simpleblog_register_scripts() {
+    wp_enqueue_script('simpleblog-sidebar', get_template_directory_uri() . '/assets/js/sidebar.js', array(), '1.0', true);
+}
+
+add_action('wp_enqueue_scripts', 'simpleblog_register_scripts');
 ?>
 

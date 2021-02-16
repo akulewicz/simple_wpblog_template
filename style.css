@@ -13,19 +13,49 @@ Author URI: https://kulewicz.net
 }
 
 body {
-    margin: 0 auto;
-    max-width: 672px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 18px;
     font-weight: 400;
-    color: hsla(0,0%,0%,0.9);
+    color: hsla(0, 0%, 0%, 0.9);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Merriweather', serif;
 }
 
+h2 {
+    color: #007acc;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+p,
+ul {
+    line-height: 160%;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 672px;
+    width: 100%;
+}
+
 .site-header {
+    position: relative;
     margin-bottom: 50px;
     border-bottom: 1px solid rgb(230, 230, 230);
     padding-bottom: 20px;
@@ -37,7 +67,7 @@ h1, h2, h3, h4 {
     color: #002E4D;
 }
 
-.dev-icon {
+.site-header__dev-icon {
     color: #fff;
     margin-right: 10px;
     font-size: 54px;
@@ -46,18 +76,94 @@ h1, h2, h3, h4 {
     padding: 5px;
 }
 
-p, ul {
-    line-height: 160%;
+.sidebar {
+    width: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    transition: width 0.5s;
+    z-index: 3;
 }
 
-h2 {
-    color: #007acc;
-    font-weight: 900;
-    font-size: 24px;
+.sidebar--visible {
+    width: 350px;
 }
 
-article {
+.sidebar__switcher {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    color: #353535;
+    z-index: 1000;
+}
+
+.sidebar__switcher--visible {
+    color: #fff;
+}
+
+.sidebar__panel {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(assets/css/images/sidebar_background.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.5s;
+}
+
+.sidebar__panel--visible {
+    width: 320px;
+}
+
+.sidebar-navigation {
+    margin-top: 150px;
     margin-bottom: 50px;
+}
+
+.sidebar-navigation__list {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar-navigation__item {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-navigation__link {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.sidebar-navigation__link:hover {
+    text-decoration: underline;
+}
+
+.social-links__link {
+    color: lightgray;
+    font-size: 35px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.social-links__link:hover {
+    color: white;
 }
 
 .post__link {
@@ -123,32 +229,32 @@ article {
     margin: 0 auto;
     padding: 20px 0;
     max-width: 672px;
+    width: 100%;
     border-top: 1px solid rgb(230, 230, 230);
 }
 
-.footer-navigation {
-    margin-bottom: 30px;
-}
+@media (max-width: 913px) {
+    .sidebar__panel--visible {
+        width: 100vw;
+        ;
+    }
 
-.footer-navigation__list {
-    padding: 0;
-    list-style: none;
-    width: 100%;
-    display: flex;
-    
-}
+    .sidebar--visible {
+        width: 0;
+    }
 
-.footer-navigation__item {
-    margin-right: 20px;
-}
+    .site-header__main-link {
+        text-align: center;
+        width: 100%
+    }
 
-.footer-navigation__link {
-    color: rgb(2, 111, 165);
-    text-decoration: none;
-}
+    .sidebar__panel {
+        justify-content: center;
+    }
 
-.footer-navigation__link:hover {
-    text-decoration: underline;
+    .sidebar-navigation {
+        margin-top: 0;
+    }
 }
 
 @media (max-width: 720px) {
@@ -157,14 +263,17 @@ article {
     }
 
     .site-header__main-link {
-        font-size: 40px;
+        font-size: 30px;
+        margin-top: 50px;
     }
 
-    .dev-icon {
+    .site-header__dev-icon {
         font-size: 40px;
     }
+}
 
-    .footer-navigation__list {
-        flex-direction: column;
+@media (max-width: 720px) and (orientation: landscape) {
+    .sidebar-navigation {
+        margin-bottom: 0;
     }
 }
