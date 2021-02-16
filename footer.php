@@ -1,6 +1,5 @@
 <footer class="footer">
-        
-        <p>&copy; Arkadiusz Kulewicz 2021 r.</p>
+    <p>&copy; Made With ❤ by Arkadiusz Kulewicz 2021 r.</p>
 </footer>
     <?php wp_footer(); ?>
 </body>

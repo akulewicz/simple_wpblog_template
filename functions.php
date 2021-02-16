@@ -19,19 +19,18 @@ function simpleblog_menus() {
 add_action('init', 'simpleblog_menus');
 
 
-/* Add specific class for footer menu li */
+/* Add specific class for sidebar menu li */
 function simpleblog_add_class_sidebarmenu_li( $classes, $item, $args ) {
     if( $args->theme_location == 'sidebar') {
         $classes[] = 'sidebar-navigation__item';
     }
     return $classes;
-
 }
 
 add_filter('nav_menu_css_class', 'simpleblog_add_class_sidebarmenu_li', 1, 3);
 
 
-/* Add specific class for footer menu anchor */
+/* Add specific class for sidebar menu anchor */
 function simpleblog_add_class_sidebarmenu_a( $atts, $item, $args ) {
     if( $args->theme_location == 'sidebar' ) {
       $atts['class'] = 'sidebar-navigation__link';
@@ -44,8 +43,8 @@ add_filter( 'nav_menu_link_attributes', 'simpleblog_add_class_sidebarmenu_a', 10
 
 // ==================== REGISTER STYLES AND SCRIPTS =================
 
+// Register styles
 function simpleblog_register_styles() {
-
     $version = wp_get_theme()->get( 'Version' );
     wp_enqueue_style('simpleblog-main', get_template_directory_uri() . "/style.css", array('simpleblog-fontawsome'), $version, 'all');
     wp_enqueue_style('simpleblog-fontawsome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css", array('simpleblog-normalize'), '5.15.2', 'all');
@@ -54,7 +53,7 @@ function simpleblog_register_styles() {
 
 add_action('wp_enqueue_scripts', 'simpleblog_register_styles');
 
-
+//Register scripts
 function simpleblog_register_scripts() {
     wp_enqueue_script('simpleblog-sidebar', get_template_directory_uri() . '/assets/js/sidebar.js', array(), '1.0', true);
 }
