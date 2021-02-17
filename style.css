@@ -166,6 +166,56 @@ article {
     color: white;
 }
 
+.search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+
+}
+
+.search--visible {
+    display: flex;
+}
+
+.search-switcher {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    color: #353535;
+    z-index: 1000;
+}
+
+.search__box {
+    display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
+    justify-content: center;
+    max-width:500px;
+    width: 100%;
+}
+
+.search__input {
+    width: 80%;
+    font-size: 20px;
+    padding: 8px;
+}
+
+.search__button {
+    background: #007acc;
+    color: #fff;
+    width: 40px;
+}
+
 .post__link {
     text-decoration: none;
     color: #007acc;

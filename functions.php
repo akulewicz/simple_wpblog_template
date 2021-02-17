@@ -56,6 +56,7 @@ add_action('wp_enqueue_scripts', 'simpleblog_register_styles');
 //Register scripts
 function simpleblog_register_scripts() {
     wp_enqueue_script('simpleblog-sidebar', get_template_directory_uri() . '/assets/js/sidebar.js', array(), '1.0', true);
+    wp_enqueue_script('simpleblog-search', get_template_directory_uri() . '/assets/js/search.js', array(), '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'simpleblog_register_scripts');
